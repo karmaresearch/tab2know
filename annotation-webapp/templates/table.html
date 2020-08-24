@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Table {{metadata.url}} {% endblock %}</h1>
+    <a href="?url={{prev_table | urlencode}}">Previous</a> &nbsp; 
+    <a href="/">List</a> &nbsp; 
+    <a href="?url={{next_table | urlencode}}">Next</a>
+{% endblock %}
+
+{% block content %}
+    <script>
+        $( function() {
+        var availableTags = {{classes | tojson}};
+        $( ".autocomplete" ).autocomplete({
+          source: availableTags
+        });
+        } );
+    </script>
+
+    <form method=POST style="margin: 2em">
+        {% for el in form_elements %}
+            <label>
+                <span style="display:inline-block; width:20em">{{el.name}}</span>
+                <input style="width:50em;" name="{{el.name}}" value="{{el.value}}" class="{{el.class}}" />
+            </label><br>
+        {% endfor %}
+         <label>
+             <span style="display:inline-block; width:20em">
+                 <input style="width:20em;" name="newpth" value="" placeholder="new attribute"/>
+             </span>
+            <input style="width:50em;" name="newval" value="" />
+        </label><br>
+        <input type=submit value="Save" />
+    </form>
+
+    <div style="margin:2em; display:flex; align-items: center; justify-content: space-evenly; flex-wrap:wrap">
+        <div style="flex-grow:0;margin:1em">
+            {{tablehtml | safe}}
+        </div>
+        <div style="flex-grow:0;margin:1em">
+            {% if imgbase64 %}
+                <img src="data:image/png;base64, {{imgbase64}}" alt="Red dot" />
+            {% endif %}
+        </div>
+    </div>
+<center><h3>{{metadata["dc:title"]}}</h3></center>
+    <pre style="width:100%; overflow:scroll; border:1px solid black">{{metadata |tojson(indent=2)}}</pre>
+{% endblock %}

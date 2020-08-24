@@ -1,0 +1,39 @@
+{
+    "@version": 1.1,
+
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "magc": "http://ma-graph.org/class/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "cito": "http://purl.org/spar/cito/",
+    "prism": "http://prismstandard.org/namespaces/1.2/basic/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "datacite": "http://purl.org/spar/datacite/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+
+    "@base": "http://semanticscholar.org/paper/",
+    "id": "@id",
+    "title": "dcterms:title",
+    "paperAbstract": "dcterms:abstract",
+    "doi": "datacite:doi",
+    "pdfUrls": {"@type":"@id", "@id":"fabio:hasURL"},
+    "year": {"@id": "prism:publicationDate", "@type": "xsd:year"},
+
+    "journalName": "prism:publicationName",
+    "journalVolume": "prism:volume",
+    "journalPages": "prism:pageRange",
+    "venue": "http://www.semanticscholar.org/search?venue",
+
+    "outCitations": {"@id":"cito:cites", "@type": "@id"},
+
+    "authors": {
+        "@id":"dcterms:creator",
+        "@context": {
+            "@base": "http://semanticscholar.org/author/",
+            "id": "@id",
+            "name": "foaf:name"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Sample Tables{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>Table</th>
+            {% for p in form_paths %}
+            <th>
+                {{p}}
+            </th>
+            {% endfor %}
+        </tr>
+        {% for name, (meta, rows) in db.items() %}
+        <tr>
+            <td>
+            <a href="?url={{meta.url | urlencode}}">{{name}}</a><br>
+            <small>{{meta["dc:title"][:100]}}</small><br>
+            </td>
+            {% for p in form_paths %}
+            <td>
+                {% for val in table_path_annotations[name][p] %}
+                    {% if val.startswith('http') %}
+                        {% set a = (val | replace('http://karmaresearch.net/','')) %}
+                        <a href="{{url_for('view', label=val)}}">{{a}}</a>
+                    {% else %}
+                        {{val}}
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

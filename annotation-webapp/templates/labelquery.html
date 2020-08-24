@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Label Queries{% endblock %}</h1>
+    Syntax for slots: <tt>foo=this,bar=that</tt>.
+{% endblock %}
+
+{% block content %}
+<script>
+    $( function() {
+        $( ".input-value" ).autocomplete({
+          source: {{classes | list | tojson}}
+        });
+    } );
+</script>
+<style>
+    .input-value {
+        width:20em;
+    }
+    td.num {
+        padding: 0 .5em; text-align:right
+    }
+</style>
+<form method=GET style="width:60%; text-align:right">
+    Show label type:
+    <select name="showtype" onchange="form.submit()">
+        {% for t in labelquery_types %}
+            {% set selected = 'selected' if t == current_labelquery_type else '' %}
+            <option name="{{t}}" {{selected}}>{{t}}</option>
+        {% endfor %}
+    </select>
+</form>
+<div style="display:flex; flex-wrap:wrap">
+    <div style="width:60%; height:32em; overflow-y:scroll">
+        
+        <table class="sortable">
+            <thead>
+            <tr>
+                <th><a class="sort_btn" href="#"/></th>
+                <th>Template</th>
+                <th>Slots</th>
+                <th>Value <a class="sort_btn" href="#"/></th>
+                <th><abbr title="Precision">P</abbr><a class="sort_btn" href="#"/></th>
+                <th><abbr title="Recall">R</abbr><a class="sort_btn" href="#"/></th>
+                <th>F1<a class="sort_btn" href="#"/></th>
+                <th><abbr title="Number of tables that this query labels">N</abbr><a class="sort_btn" href="#"/></th>
+            </tr>
+            <form method=POST action="{{url_for('labelquery', showtype=current_labelquery_type)}}">
+                <input type="hidden" name="action" value="save-labelquery" />
+                <input type="hidden" name="qid" value="{{new_qid}}" />
+                <tr>
+                    <th>+</th>
+                    <td>
+                        <select name="template">
+                            <option disabled selected>Select Template...</option>
+                            {% for t in templates %}
+                                <option name="{{t}}">{{t}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td><textarea name="slots" class="input-slots"></textarea></td>
+                    <td>
+                        <input name="value" class="input-value" />
+                        <br>
+                        <input type="submit" value="Add" />
+                    </td>
+                    <td colspan=4 style="text-align: center">
+                        <a href="{{url_for('labelquery', showtype=current_labelquery_type, view='report')}}">View Report</a><br>
+                        <a href="{{url_for('labelquery', showtype=current_labelquery_type, view='confusion')}}">View Confusions</a>
+                    </td>
+                </tr>
+            </form>
+            </thead>
+            <tbody>
+            
+            {% for lqid, lq in labelqueries.items() %}
+                {% if lq.label == current_labelquery_type %}
+                <tr>
+                    <form method=POST action="{{url_for('labelquery', showtype=current_labelquery_type)}}">
+                        <td style="padding: 1em 0; font-weight:bold;">
+                            {{lqid}}
+                            <input type=checkbox name="enabled" {{'checked=%s'%lq.get('enabled') if lq.get('enabled') else ''}} onchange="form.submit()"/>
+                        </td>
+                        <td>
+                            <select name="template">
+                                {% for t in templates %}
+                                    {% set selected = 'selected' if t == lq.template else '' %}
+                                    <option name="{{t}}" {{selected}}>{{t}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td><textarea name="slots" class="input-slots">{{lq.slots}}</textarea></td>
+                        <td data-value="{{lq.value}}">
+                            <input name="value" value="{{lq.value | replace('http://karmaresearch.net/', '')}}" class="input-value" />
+                            <br>
+                            <input type="submit" value="Save" />
+                            <input type="submit" value="Test →" onclick="form.action.value='setquery'" />
+                            <input type="submit" value="Delete" onclick="form.action.value='delete-labelquery'" />
+                        </td>
+                        {% set s = lq.scores %}
+                        {% if s %}
+                            {% set hover = 'tp:%d'%s.get('tp',0)+', fp:%d'%s.get('fp',0)+', fn:%d'%s.get('fn',0) %}
+                            {% for val,evalset in [("precision", "FP"), ("recall", "FN"), ("f1", "POS")] %}
+                                {% set v = lq.scores.get(val) %}
+                                <td class="num" data-value="{{v}}">
+                                    <a title="{{hover + '\nClick to view ' + evalset}}" href="{{url_for('view', lqid=lqid, evalset=evalset)}}">
+                                    {% if v %}
+                                        {{v if v == (v|int) else '%.2f'%v}}
+                                    {% else %}
+                                        {{null}}
+                                    {% endif %}
+                                    </a>
+                                </td>
+                            {% endfor %}
+                            {% set v = lq.scores.get('n_results')  %}
+                            <td class="num" data-value="{{v}}">
+                                
+                                <input type="submit" onclick="form.action.value='count'; form.submit();" title="🔄 Refresh" value="{{ v if v is not none else '?' }}" style="background: none!important; border: none; padding: 0!important; cursor: pointer;" />
+                            </td>
+                            <input type="hidden" name="action" value="save-labelquery" />
+                            <input type="hidden" name="qid" value="{{lqid}}" />
+                        {% else %}
+                            <td colspan=3 style="text-align:center">
+                                <input type="hidden" name="action" value="build-cache" />
+                                Cache missing<br>
+                                <input type="submit" value="Rebuild" />
+                            </td>
+                        {% endif %}
+                        
+                    </form>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div style="width:40%">
+        {% if view %}
+            {{view | safe}}
+            <form method=POST action="{{url_for('labelquery', showtype=current_labelquery_type)}}">
+                <input type="hidden" name="action" value="build-cache" />
+                <input type="submit" value="Rebuild cache" />
+            </form>
+        {% else %}
+            <form method="POST">
+                <input type="hidden" name="action" value="query" />
+                Slots: <textarea name="slots" style="width: 30em">{{slots}}</textarea><br>
+                <textarea style="font-family:monospace; width:95%; height:20em; padding:1%" name="query">{{query | safe}}</textarea><br>
+                <input type="submit" value="Query" />
+                Template:
+                <input name="template" class="input-template" value="{{template}}" />
+                <input type="submit" onclick="form.action.value='save-template'"  value="Save Template"/>
+            </form>
+
+            {% if results %}
+            Found {{ results.get('results', {}).get('bindings', []) | length }} results.
+            <table>
+                <tr>
+                    {% for h in results.get('head', {}).get('vars', []) %}
+                        <th>{{h}}</th>
+                    {% endfor %}
+                </tr>
+                {% for b in results.get('results', {}).get('bindings', [])[:100] %}
+                <tr>
+                    {% for h in results.get('head', {}).get('vars', []) %}
+                        <td>
+                            {% if h in b %}
+                                {% from 'base.html' import explore %}
+                                {{ explore(b.get(h)) }}
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

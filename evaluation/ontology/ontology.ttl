@@ -1,0 +1,376 @@
+@prefix : <http://webprotege.stanford.edu/project/8hlfhmboQynm8edkBnjisN#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://webprotege.stanford.edu/project/8hlfhmboQynm8edkBnjisN> .
+
+<http://webprotege.stanford.edu/project/8hlfhmboQynm8edkBnjisN> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#sameAs
+owl:sameAs rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://cs.vu.nl/tab2know/Precision
+<http://cs.vu.nl/tab2know/Precision> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://cs.vu.nl/tab2know/columnDomain
+<http://cs.vu.nl/tab2know/columnDomain> rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf owl:topObjectProperty ;
+                                        rdfs:label "columnDomain" .
+
+
+###  http://cs.vu.nl/tab2know/dataset
+<http://cs.vu.nl/tab2know/dataset> rdf:type owl:ObjectProperty ;
+                                   rdfs:range <http://cs.vu.nl/tab2know/Dataset> ;
+                                   rdfs:label "dataset" .
+
+
+###  http://cs.vu.nl/tab2know/hasColumn
+<http://cs.vu.nl/tab2know/hasColumn> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf owl:topObjectProperty ;
+                                     rdfs:label "hasColumn" .
+
+
+###  http://cs.vu.nl/tab2know/hasRow
+<http://cs.vu.nl/tab2know/hasRow> rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                  rdfs:label "hasRow" .
+
+
+###  http://cs.vu.nl/tab2know/measurementValue
+<http://cs.vu.nl/tab2know/measurementValue> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf owl:topObjectProperty ;
+                                            rdfs:label "measurementValue" .
+
+
+###  http://cs.vu.nl/tab2know/model
+<http://cs.vu.nl/tab2know/model> rdf:type owl:ObjectProperty ;
+                                 rdfs:label "method"^^xsd:string ,
+                                            "model" .
+
+
+###  http://cs.vu.nl/tab2know/partOf
+<http://cs.vu.nl/tab2know/partOf> rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf owl:topObjectProperty ;
+                                  rdfs:label "partOf" .
+
+
+###  http://cs.vu.nl/tab2know/rowDescribesEntity
+<http://cs.vu.nl/tab2know/rowDescribesEntity> rdf:type owl:ObjectProperty ;
+                                              rdfs:range owl:Thing ;
+                                              rdfs:label "describes"^^xsd:string ,
+                                                         "rowDescribesEntity" .
+
+
+###  http://cs.vu.nl/tab2know/tableDescribes
+<http://cs.vu.nl/tab2know/tableDescribes> rdf:type owl:ObjectProperty ;
+                                          rdfs:subPropertyOf owl:topObjectProperty ;
+                                          rdfs:label "tableDescribes" .
+
+
+###  http://www.w3.org/2002/07/owl#sameAs
+owl:sameAs rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://cs.vu.nl/tab2know/magnitude
+<http://cs.vu.nl/tab2know/magnitude> rdf:type owl:DatatypeProperty ;
+                                     rdfs:label "magnitude" .
+
+
+###  http://www.w3.org/2002/07/owl#sameAs
+owl:sameAs rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://cs.vu.nl/tab2know/Accuracy
+<http://cs.vu.nl/tab2know/Accuracy> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                    rdfs:label "Accuracy"^^xsd:string .
+
+
+###  http://cs.vu.nl/tab2know/AreaUnderCurve
+<http://cs.vu.nl/tab2know/AreaUnderCurve> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                          rdfs:label "Area Under The Curve"^^xsd:string ;
+                                          <http://www.w3.org/2004/02/skos/core#altLabel> "AUC"^^xsd:string ,
+                                                                                         "ROC Area"^^xsd:string .
+
+
+###  http://cs.vu.nl/tab2know/BilingualEvaluationUnderstudy
+<http://cs.vu.nl/tab2know/BilingualEvaluationUnderstudy> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                                         rdfs:label "Bilingual Evaluation Understudy"^^xsd:string ;
+                                                         <http://www.w3.org/2004/02/skos/core#altLabel> "BLEU"^^xsd:string .
+
+
+###  http://cs.vu.nl/tab2know/Category
+<http://cs.vu.nl/tab2know/Category> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://cs.vu.nl/tab2know/Input> ;
+                                    rdfs:label "Category" .
+
+
+###  http://cs.vu.nl/tab2know/Correlation
+<http://cs.vu.nl/tab2know/Correlation> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                       rdfs:label "Correlation" .
+
+
+###  http://cs.vu.nl/tab2know/Count
+<http://cs.vu.nl/tab2know/Count> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                 rdfs:label "Count" ;
+                                 <http://www.w3.org/2004/02/skos/core#altLabel> "Observed Count"^^xsd:string .
+
+
+###  http://cs.vu.nl/tab2know/Dataset
+<http://cs.vu.nl/tab2know/Dataset> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://cs.vu.nl/tab2know/Input> ;
+                                   rdfs:label "Dataset" ;
+                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Data set"^^xsd:string ,
+                                                                                  "data sets"^^xsd:string .
+
+
+###  http://cs.vu.nl/tab2know/Error
+<http://cs.vu.nl/tab2know/Error> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> .
+
+
+###  http://cs.vu.nl/tab2know/Example
+<http://cs.vu.nl/tab2know/Example> rdf:type owl:Class ;
+                                   rdfs:subClassOf owl:Thing ;
+                                   rdfs:label "Example" .
+
+
+###  http://cs.vu.nl/tab2know/ExperimentalVariable
+<http://cs.vu.nl/tab2know/ExperimentalVariable> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://cs.vu.nl/tab2know/Input> ;
+                                                rdfs:label "Experimental Variable"^^xsd:string .
+
+
+###  http://cs.vu.nl/tab2know/F-value
+<http://cs.vu.nl/tab2know/F-value> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                   rdfs:label "F-value" .
+
+
+###  http://cs.vu.nl/tab2know/Feature
+<http://cs.vu.nl/tab2know/Feature> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://cs.vu.nl/tab2know/ExperimentalVariable> ;
+                                   rdfs:label "Feature" .
+
+
+###  http://cs.vu.nl/tab2know/Input
+<http://cs.vu.nl/tab2know/Input> rdf:type owl:Class ;
+                                 rdfs:subClassOf owl:Thing ;
+                                 rdfs:label "Input" .
+
+
+###  http://cs.vu.nl/tab2know/InputSize
+<http://cs.vu.nl/tab2know/InputSize> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://cs.vu.nl/tab2know/ExperimentalVariable> ;
+                                     rdfs:label "Input Size" .
+
+
+###  http://cs.vu.nl/tab2know/Maximum
+<http://cs.vu.nl/tab2know/Maximum> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://cs.vu.nl/tab2know/Observation> ;
+                                   rdfs:label "Maximum" .
+
+
+###  http://cs.vu.nl/tab2know/Mean
+<http://cs.vu.nl/tab2know/Mean> rdf:type owl:Class ;
+                                rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                rdfs:label "Mean" .
+
+
+###  http://cs.vu.nl/tab2know/Median
+<http://cs.vu.nl/tab2know/Median> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                  rdfs:label "Median" .
+
+
+###  http://cs.vu.nl/tab2know/Method
+<http://cs.vu.nl/tab2know/Method> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://cs.vu.nl/tab2know/Input> ;
+                                  rdfs:label "Method" .
+
+
+###  http://cs.vu.nl/tab2know/Metric
+<http://cs.vu.nl/tab2know/Metric> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://cs.vu.nl/tab2know/Observation> ;
+                                  rdfs:label "Metric" .
+
+
+###  http://cs.vu.nl/tab2know/Observation
+<http://cs.vu.nl/tab2know/Observation> rdf:type owl:Class ;
+                                       rdfs:label "Observation" .
+
+
+###  http://cs.vu.nl/tab2know/Other
+<http://cs.vu.nl/tab2know/Other> rdf:type owl:Class ;
+                                 rdfs:subClassOf owl:Thing ;
+                                 rdfs:label "Other" .
+
+
+###  http://cs.vu.nl/tab2know/Precision
+<http://cs.vu.nl/tab2know/Precision> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> .
+
+
+###  http://cs.vu.nl/tab2know/Recall
+<http://cs.vu.nl/tab2know/Recall> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty owl:sameAs ;
+                                                    owl:hasValue <http://www.wikidata.org/entity/Q6842789>
+                                                  ] ;
+                                  rdfs:label "Recall" ;
+                                  <http://www.w3.org/2004/02/skos/core#altLabel> "sensitivity"^^xsd:string ,
+                                                                                 "true positive rate"^^xsd:string .
+
+
+###  http://cs.vu.nl/tab2know/RunTime
+<http://cs.vu.nl/tab2know/RunTime> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://cs.vu.nl/tab2know/Observation> ;
+                                   rdfs:label "RunTime"@en .
+
+
+###  http://cs.vu.nl/tab2know/StandardDeviation
+<http://cs.vu.nl/tab2know/StandardDeviation> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://cs.vu.nl/tab2know/Metric> ;
+                                             rdfs:label "Standard Deviation" .
+
+
+###  http://cs.vu.nl/tab2know/SymbolDescription
+<http://cs.vu.nl/tab2know/SymbolDescription> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://cs.vu.nl/tab2know/Other> ;
+                                             rdfs:label "Symbol Description"^^xsd:string .
+
+
+###  http://cs.vu.nl/tab2know/Task
+<http://cs.vu.nl/tab2know/Task> rdf:type owl:Class ;
+                                rdfs:subClassOf <http://cs.vu.nl/tab2know/Method> ;
+                                rdfs:label "Task" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://cs.vu.nl/tab2know/ExampleColumn1
+<http://cs.vu.nl/tab2know/ExampleColumn1> rdf:type owl:NamedIndividual ;
+                                          rdfs:label "ExampleColumn1" .
+
+
+###  http://cs.vu.nl/tab2know/ExampleColumn2
+<http://cs.vu.nl/tab2know/ExampleColumn2> rdf:type owl:NamedIndividual ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://cs.vu.nl/tab2know/columnDomain> ;
+                                                     owl:someValuesFrom <http://cs.vu.nl/tab2know/Dataset>
+                                                   ] ;
+                                          rdfs:label "ExampleColumn2" .
+
+
+###  http://cs.vu.nl/tab2know/ExampleColumn3
+<http://cs.vu.nl/tab2know/ExampleColumn3> rdf:type owl:NamedIndividual ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://cs.vu.nl/tab2know/columnDomain> ;
+                                                     owl:someValuesFrom <http://cs.vu.nl/tab2know/Precision>
+                                                   ] ;
+                                          rdfs:label "ExampleColumn3" .
+
+
+###  http://cs.vu.nl/tab2know/ExampleExperimentalResult1
+<http://cs.vu.nl/tab2know/ExampleExperimentalResult1> rdf:type owl:NamedIndividual ;
+                                                      <http://cs.vu.nl/tab2know/dataset> <http://cs.vu.nl/tab2know/MNIST> ;
+                                                      <http://cs.vu.nl/tab2know/measurementValue> <http://cs.vu.nl/tab2know/ExampleExperimentalResult1VariableValue1> ;
+                                                      <http://cs.vu.nl/tab2know/model> <http://cs.vu.nl/tab2know/LSTM> ;
+                                                      rdfs:label "ExampleExperimentalResult1" .
+
+
+###  http://cs.vu.nl/tab2know/ExampleExperimentalResult1VariableValue1
+<http://cs.vu.nl/tab2know/ExampleExperimentalResult1VariableValue1> rdf:type owl:NamedIndividual ,
+                                                                             <http://cs.vu.nl/tab2know/Precision> ;
+                                                                    <http://cs.vu.nl/tab2know/magnitude> 0.5 ;
+                                                                    rdfs:label "ExampleExperimentalResult1VariableValue1" .
+
+
+###  http://cs.vu.nl/tab2know/ExampleTable
+<http://cs.vu.nl/tab2know/ExampleTable> rdf:type owl:NamedIndividual ;
+                                        <http://cs.vu.nl/tab2know/hasColumn> <http://cs.vu.nl/tab2know/ExampleColumn1> ,
+                                                                             <http://cs.vu.nl/tab2know/ExampleColumn2> ,
+                                                                             <http://cs.vu.nl/tab2know/ExampleColumn3> ;
+                                        <http://cs.vu.nl/tab2know/hasRow> <http://cs.vu.nl/tab2know/ExampleTableRow1> ;
+                                        rdfs:label "ExampleTable" .
+
+
+###  http://cs.vu.nl/tab2know/ExampleTableRow1
+<http://cs.vu.nl/tab2know/ExampleTableRow1> rdf:type owl:NamedIndividual ;
+                                            <http://cs.vu.nl/tab2know/rowDescribesEntity> <http://cs.vu.nl/tab2know/ExampleExperimentalResult1> ;
+                                            rdfs:label "ExampleTableRow1" .
+
+
+###  http://cs.vu.nl/tab2know/LSTM
+<http://cs.vu.nl/tab2know/LSTM> rdf:type owl:NamedIndividual ;
+                                rdfs:label "LSTM" .
+
+
+###  http://cs.vu.nl/tab2know/MNIST
+<http://cs.vu.nl/tab2know/MNIST> rdf:type owl:NamedIndividual ,
+                                          <http://cs.vu.nl/tab2know/Dataset> ;
+                                 rdfs:label "MNIST" .
+
+
+###  http://schema.org/Dataset
+<http://schema.org/Dataset> rdf:type owl:NamedIndividual ;
+                            rdfs:label "Dataset" .
+
+
+###  http://www.wikidata.org/entity/Q6842789
+<http://www.wikidata.org/entity/Q6842789> rdf:type owl:NamedIndividual ;
+                                          rdfs:label "Q6842789" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://cs.vu.nl/tab2know/Precision> rdfs:label "Precision" .
+
+
+owl:sameAs rdfs:label "sameAs" .

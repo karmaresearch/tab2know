@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    
+    <h1>
+        {% block title %}
+        View {{title}} ({{tables | length}} table{{'' if ((tables|length) == 1) else 's'}}) 
+        {% endblock %}
+    </h1>
+    <p>{{description}}</p>
+    {% if lqid is not none %}
+        {% for s in ["POS", "NEG", "TP", "FP", "FN", "TN"] %}
+            <a href="{{url_for('view', lqid=lqid, evalset=s)}}">{{s}}</a> &nbsp;
+        {% endfor %}
+    {% endif %}
+    {% if showtype is not none %}
+        {% for s in ["POS", "NEG", "TP", "FP", "FN", "TN"] %}
+            <a href="{{url_for('view', showtype=showtype, label=label, evalset=s)}}">{{s}}</a> &nbsp;
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% for table in tables %}
+    <div>
+        <div style="margin:2em; display:flex; align-items: center; justify-content: space-evenly; flex-wrap:wrap">
+            <div style="flex-grow:0;margin:1em; max-width:45%; max-height:25em; overflow:scroll">
+                {{table.tablehtml | safe}}
+            </div>
+            <div style="flex-grow:0;margin:1em; max-width:45%; max-height:25em; overflow:scroll">
+                {% if table.imgbase64 %}
+                    <img src="data:image/png;base64, {{table.imgbase64}}" title="{{table.metadata['@id']}}" />
+                {% endif %}
+            </div>
+        </div>
+        <center>
+            <h3>{{table.metadata["dc:title"]}}</h3>
+            <a href="/annotate?url={{table.metadata['url'] | escape }}">Annotate</a> &nbsp;
+            <a href="{{url_for('explore', uri=table.metadata['@id'])}}">Explore in graph</a>
+            {% if lqid is not none %}
+                <small>
+                    <br>This is a <b>{{evalset}}</b> item for query {{lqid}}
+                    <br>{{description}}
+                    <br>Predicted label: {{table.pos_values}}
+                    <br>True label: {{table.true_values}}
+                </small>
+            {% endif %}
+        </center>
+    </div>
+{% endfor %}
+
+{% endblock %}

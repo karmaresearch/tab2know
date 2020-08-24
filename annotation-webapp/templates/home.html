@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Academic Table Semantics{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div id="yasgui"></div>
+<script>
+const yasgui = new Yasgui(document.getElementById("yasgui"), {
+    persistencyExpire: 1,
+    yasqe: {
+      persistencyExpire: 1,
+    },
+    requestConfig: {
+      endpoint: "/sparql",
+    },
+    copyEndpointOnNewTab: false,
+    renderItem: (data, source) => {
+        console.log(data, source)
+    }
+});
+for (tab in yasgui.tabElements._tabs) {
+    yasgui.getTab(tab).close()
+}
+yasgui.addTab(true, { name: 'Query' });
+    
+const queries = {{example_queries | tojson | safe}};
+console.log(queries)
+for (query in queries) {
+    value = queries[query];
+    yasgui.addTab(
+      false, { name: query, yasqe:{value:value} }
+    );  
+}
+
+new MutationObserver(function(){
+    $('.iri').attr('href', (a,val)=>{ 
+        return val.startsWith('/explore')? val : '/explore?uri=' + encodeURIComponent(val) 
+    })
+}).observe(document.body, { childList: true, subtree: true });
+</script>
+{% endblock %}

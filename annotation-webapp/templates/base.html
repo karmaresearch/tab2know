@@ -1,0 +1,107 @@
+{% macro explore(node, surface=none) -%}
+    {% set surface = surface if surface else node.value %}
+    {% if node.type == 'uri' %}
+        <a href="{{url_for('explore', uri=node.value)}}">{{surface}}</a>
+    {% else %}
+        {% set img = try_image(node.value) %}
+        {% if img is not none %}
+            <img src="data:image/jpg;base64,{{img}}" title="{{node.value}}" />
+        {% else %}
+            {{node.value | safe}}
+        {% endif %}
+    {% endif %}
+{%- endmacro %}
+
+{% macro select_ns(namespace, all_namespaces) -%}
+<form action="/set-namespace" class>
+
+</form>
+{%- endmacro %}
+
+<!doctype html>
+<title>{% block title %}{% endblock %}</title>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/tinysort.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/jquery.tinysort.min.js"></script>
+<link href="https://unpkg.com/@triply/yasgui/build/yasgui.min.css" rel="stylesheet" type="text/css" />
+<script src="https://unpkg.com/@triply/yasgui/build/yasgui.min.js"></script>
+<style>
+  /*.yasgui .autocompleteWrapper, .yasgui .controlbar {
+    display: none !important;
+  }*/
+</style>
+<script>
+    $(function(){
+        $('.sortable th .sort_btn').each(function(){
+            const btn = $(this).attr({'href':'#'}).html('↕︎')
+            const colnr = btn.parent().index()
+            const tbody = $('tbody', btn.parent().parent().parent().parent())
+            const selector = 'td:nth-of-type('+(colnr+1)+')';
+            const all_btns = $('th .sort_btn', btn.parent().parent())
+            
+            btn.click(function(e){ 
+                e.preventDefault()
+                if (btn.html() == '▲') {
+                    btn.html('▼')
+                    tinysort($('tr', tbody),{selector:selector, order:'desc'}, {selector:selector, data:'value', order:'desc'})
+                } else if (btn.html() == '▼') {
+                    btn.html('▲')
+                    tinysort($('tr', tbody),{selector:selector, order:'asc'}, {selector:selector, data:'value', order:'asc'})
+                } else {
+                    all_btns.html('↕︎')
+                    btn.html('▼')
+                    tinysort($('tr', tbody),{selector:selector, order:'desc'}, {selector:selector, data:'value', order:'desc'})
+                }
+            })
+        })
+    })
+</script>
+<style>
+    body {
+        font-family: sans-serif;
+    }
+    
+    table {
+        font-size: 11pt; 
+        font-family: Arial;
+        border-collapse: collapse; 
+        border: 1px solid silver;
+
+    }
+
+    .dataframe td, th {
+        padding: 4px;
+    }
+    .dataframe tbody tr {
+        background: #F8F8F8;
+    }
+    .dataframe tbody tr:nth-child(even) {
+        background: #E0E0E0;
+    }
+    
+    .sort_btn {
+        text-decoration: none;
+    }
+    
+</style>
+<section class="content">
+  <header style="font-size:small">
+      <a href="/">Home</a> &nbsp;
+      <a href="/annotate">Annotate</a> &nbsp; 
+      <a href="/labelquery">Edit Label Queries</a>
+      <form style="display: inline-block" action="set-namespace" method=POST>
+          &nbsp; Namespace: &nbsp;
+        <select name="namespace"  onchange="form.submit(); ">
+            {% for ns in all_namespaces %}
+                {% set selected = 'selected' if ns == namespace else '' %}
+                <option name="{{ns}}" {{selected}}>{{ns}}</option>
+            {% endfor %}
+        </select>
+      </form>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>

@@ -1,0 +1,61 @@
+// The rules below extract columns and related titles
+Title(X,Y) :- TE(X,<http://purl.org/dc/terms/title>,Y)
+Column(X) :- TE(X,<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>,<http://www.w3.org/ns/csvw#Column>)
+PropertyUrl(X,Y) :- TE(X,<http://www.w3.org/ns/csvw#propertyUrl>,Y)
+PropertyUrlOther(X) :- TE(X,<http://www.w3.org/ns/csvw#propertyUrl>,<http://karmaresearch.net/Other>)
+EntityColumn(Y,X) :- Column(X)
+EntityColumnLabel(X,Y) :- EntityColumn(X,Z),Title(Z,Y)
+EntityColumnUnknownType(X) :- EntityColumn(X,Z),PropertyUrlOther(Z)
+EntityColumnWithAnyType(X,Y) :- EntityColumn(X,Z),PropertyUrl(Z,Y) 
+EntityColumnKnownType(X,Y) :- EntityColumnWithAnyType(X,Y),~EntityColumnUnknownType(X)
+
+//If columns have the same label and no associated type, then columns are the same
+EntityColumnUnknownTypeLabel(X,Y) :- EntityColumnUnknownType(X),EntityColumnLabel(X,Y)
+owl:sameAs(X,Y) :- EntityColumnUnknownTypeLabel(X,L),EntityColumnUnknownTypeLabel(Y,L)
+
+//The three rules below get the labels of the cell
+//Note that I consider only the cells with a string value (predicate ISLIT)
+Cell(X) :- TE(X,<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>,<http://www.w3.org/ns/csvw#Cell>)
+Values(X,Y) :- TE(X,<http://www.w3.org/1999/02/22-rdf-syntax-ns#value>,Y)
+CellValue(X,Y) :- Cell(X),Values(X,Y),ISLIT(Y),STR_NOSPACE(Y),STR_MAXLEN(Y),STR_MINLEN(Y)
+
+//The rules below extract the column where a cell is located
+CellTable(X,Y) :- TE(Y,<http://www.w3.org/ns/csvw#cell>,X)
+CellColIndex(X,Y) :- TE(X,<http://karmaresearch.net/colIndex>,Y)
+ColumnTable(X,Y) :- TE(Y,<http://www.w3.org/ns/csvw#column>,X)
+ColIndex(X,Y) :- TE(X,<http://karmaresearch.net/colIndex>,Y),Column(X)
+CellColumn(X,Y) :- CellTable(X,Z),ColumnTable(Y,Z),CellColIndex(X,S),ColIndex(Y,S)
+
+//Associate a new entity to each cell
+EntityCell(Y,X) :- Cell(X)
+EntityLabel(Y,L) :- EntityCell(Y,X),CellValue(X,L)
+EntityWithColumnEntity(X,Y) :- EntityCell(X,Z),CellColumn(Z,W),EntityColumn(Y,W)
+EntityKnownType(X,Y) :- EntityWithColumnEntity(X,S),EntityColumnKnownType(S,Y)
+EntityUnknownType(X) :- EntityCell(X,Y),~EntityKnownType(X,Z)
+
+//Associate entities to the tables where they appear
+EntityTable(X,T) :- EntityCell(X,C),CellTable(C,T)
+
+//Obvious disambiguation is about entities with the same label and in columns
+//unlabeled with a type.
+EntityUnknownTypeLabel(X,L,C) :- EntityUnknownType(X),EntityLabel(X,L),EntityWithColumnEntity(X,C)
+owl:sameAs(X,Y) :- EntityUnknownTypeLabel(X,L,C),EntityUnknownTypeLabel(Y,L,C)
+
+//Another disambiguation. If two entities have the same label and are mentioned in the same
+//table, then they are similar
+owl:sameAs(X,Y) :- EntityLabel(X,L),EntityTable(X,T),EntityLabel(Y,L),EntityTable(Y,T)
+
+//Third disambiguation. Entities that belong to columns of the same type are
+//disambiguated if their names are sufficiently similar
+EntityTypeLabel(X,T,L) :- EntityKnownType(X,T),EntityLabel(X,L)
+owl:sameAs(X,Y) :- EntityTypeLabel(X,T,L),EntityTypeLabel(Y,T,M),STR_EQ(L,M)
+
+//Fourth disambiguation. Entities in tables written by the same author are matched as equal
+TablePaper(T,P) :- TE(T,<http://purl.org/dc/terms/source>,P)
+PaperAuthor(P,A) :- TE(P,<http://purl.org/dc/terms/creator>,A)
+TableAuthor(T,A) :- TablePaper(T,P),PaperAuthor(P,A)
+EntityAuthorLabel(E,A,L) :- EntityTable(E,T),TableAuthor(T,A),EntityLabel(E,L)
+owl:sameAs(X,Y) :- EntityAuthorLabel(X,A,L1),EntityAuthorLabel(Y,A,L2),STR_EQ(L1,L2)
+
+//Extract the mention of entities and related table cells
+EntityCellMention(X,Y,L) :- EntityCell(X,Y),EntityLabel(X,L)

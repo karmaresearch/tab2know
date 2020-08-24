@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Explore {{uri}} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div style="display:flex; flex-wrap:wrap">
+    <div style="width:40%;  overflow-wrap: break-word;">
+        <table>   
+        {% for s,p in sps %}
+            <tr>
+            {% from 'base.html' import explore %}
+            <td>{{ explore(s) }}</td><td>{{ explore(p, surface=p.value.split('/')[-1]) }}</td>
+            </tr>    
+        {% endfor %}
+        </table>
+    </div>
+    <div style="width:20%;  overflow-wrap: break-word;">
+        <a href="{{uri}}">{{uri}}</a> ↗︎
+    </div>
+    <div style="width:40%; overflow-wrap: break-word;">
+        <table>
+        {% for p,o in pos %}
+            <tr>
+            {% from 'base.html' import explore %}
+            <td>{{ explore(p, surface=p.value.split('/')[-1]) }}</td><td>{{ explore(o) }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

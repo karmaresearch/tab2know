@@ -1,0 +1,6 @@
+[submodule "tools/vlog"]
+	path = tools/vlog
+	url = git@github.com:karmaresearch/vlog.git
+[submodule "tools/trident"]
+	path = tools/trident
+	url = git@github.com:karmaresearch/trident.git

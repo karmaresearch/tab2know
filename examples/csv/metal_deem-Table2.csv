@@ -1,0 +1,4 @@
+"",Hard MV,Soft MV,Trained Label Model
+RCV1,56.4 ± 0.02,59.7 ± 0.02,60.5 ± 0.02
+OpenI,70.8 ± 0.06,72.3 ± 0.05,72.9 ± 0.01
+Average,63.6,66.0,66.7
