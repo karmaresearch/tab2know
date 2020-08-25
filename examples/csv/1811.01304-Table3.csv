@@ -1,0 +1,11 @@
+Models,Methods,PK Columns
+"",ColNetEnsemble,"0.796, 0.799, 0.798"
+"",ColNet,"0.763, 0.820, 0.791"
+Tolerant,Lookup-Vote,"0.732, 0.660, 0.694"
+"",T2K Match,"0.560, 0.408, 0.472"
+"",Efthymiou17-Vote,"0.759, 0.414, 0.536"
+"",ColNetEnsemble,"0.602, 0.639, 0.620"
+"",ColNet,"0.576, 0.619, 0.597"
+Strict,Lookup-Vote,"0.571, 0.447, 0.501"
+"",T2K Match,"0.453, 0.330, 0.382"
+"",Efthymiou17-Vote,"0.626, 0.357, 0.454"
