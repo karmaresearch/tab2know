@@ -11,7 +11,7 @@
   },
   "caption": "Figure 1: In Example 1.1, training data is labeled by sources of differing accuracy and coverage. Two key challenges arise in using this weak supervision effectively. First, we need a way to estimate the unknown source accuracies to resolve disagreements. Second, we need to pass on this critical lineage information to the end model being trained.",
   "imageText": ["Accuracy:", "90%", "…", "Accuracy:", "60%", "1k", "labels", "100k", "labels", "LABEL", "SOURCE", "2", "LABEL", "SOURCE", "1", "UNLABELED", "DATA"],
-  "renderURL": "../examples/img/1711.10160-Figure1-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure1-1.jpg",
   "captionBoundary": {
     "x1": 316.81201171875,
     "y1": 327.1429138183594,
@@ -31,7 +31,7 @@
   },
   "caption": "Table 1: Modeling advantage Aw attained using a generative model for several applications in Snorkel (Section 4.1), the upper bound Ã∗ used by our optimizer, the modeling strategy selected by the optimizer—either majority vote (MV) or generative model (GM)—and the empirical label density dΛ.",
   "imageText": ["Radiology", "7.0", "12.4", "GM", "2.3", "CDR", "4.9", "7.9", "GM", "1.8", "Spouses", "4.4", "4.6", "GM", "1.4", "Chem", "0.1", "0.3", "MV", "1.2", "EHR", "2.8", "4.8", "GM", "1.2", "Dataset", "Aw", "(%)", "Ã", "∗", "(%)", "Modeling", "Strategy", "dΛ"],
-  "renderURL": "../examples/img/1711.10160-Table1-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Table1-1.jpg",
   "captionBoundary": {
     "x1": 316.81201171875,
     "y1": 66.00689697265625,
@@ -51,7 +51,7 @@
   },
   "caption": "Figure 4: A plot of the modeling advantage, i.e., the improvement in label accuracy from the generative model, as a function of the number of labeling functions (equivalently, the label density) on a synthetic dataset.7 We plot the advantage obtained by a learned generative model (GM), Aw; by an optimal model A∗; the upper bound Ã∗ used in our optimizer; and the low-density bound (Proposition 1).",
   "imageText": ["Low-Density", "Bound", "Optimizer", "(A", "*", ")", "Optimal", "(A", "*", ")", "Gen.", "Model", "(Aw)", "Mid-Density", "(choose", "GM)", "High-Density", "(choose", "MV)", "Low-Density", "(choose", "MV)", "g", "e", "d", "v", "a", "n", "ta", "g", "A", "M", "o", "d", "e", "lin", "0.20", "0.15", "0.10", "0.05", "0.00", "#", "of", "Labeling", "Functions", "100", "101", "102", "103"],
-  "renderURL": "../examples/img/1711.10160-Figure4-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure4-1.jpg",
   "captionBoundary": {
     "x1": 53.7979736328125,
     "y1": 228.14990234375,
@@ -71,7 +71,7 @@
   },
   "caption": "Table 6: Labeling function ablation study on CDR. Adding different types of labeling functions improves predictive performance.",
   "imageText": ["Text", "Patterns", "42.3", "42.4", "42.3", "+", "Distant", "Supervision", "37.5", "54.1", "44.3", "+2.0", "+", "Structure-based", "38.8", "54.3", "45.3", "+1.0", "LF", "Type", "P", "R", "F1", "Lift"],
-  "renderURL": "../examples/img/1711.10160-Table6-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Table6-1.jpg",
   "captionBoundary": {
     "x1": 316.81201171875,
     "y1": 66.00689697265625,
@@ -91,7 +91,7 @@
   },
   "caption": "Table 5: Comparison between training the discriminative model on the labels estimated by the generative model, versus training on the unweighted average of the LF outputs. Predictive performance gains show that modeling LF noise helps.",
   "imageText": ["Chem", "48.6", "54.1", "+5.5", "EHR", "80.9", "81.4", "+0.5", "CDR", "42.0", "45.3", "+3.3", "Spouses", "52.8", "54.2", "+1.4", "Crowd", "(Acc)", "62.5", "65.6", "+3.1", "Rad.", "(AUC)", "67.0", "72.0", "+5.0", "Task", "Unweighted", "LFs", "Disc.", "Model", "Lift", "Disc.", "Model", "on"],
-  "renderURL": "../examples/img/1711.10160-Table5-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Table5-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 66.00689697265625,
@@ -111,7 +111,7 @@
   },
   "caption": "Table 4: Evaluation on cross-modal experiments. Labeling functions that operate on or represent one modality (text, crowd workers) produce training labels for models that operate on another modality (images, text), and approach the predictive performance of large hand-labeled training datasets.",
   "imageText": ["Radiology", "(AUC)", "72.0", "76.2", "Crowd", "(Acc)", "65.6", "68.8", "Task", "Snorkel", "(Disc.)", "Hand", "Supervision"],
-  "renderURL": "../examples/img/1711.10160-Table4-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Table4-1.jpg",
   "captionBoundary": {
     "x1": 316.81201171875,
     "y1": 197.0948486328125,
@@ -131,7 +131,7 @@
   },
   "caption": "Table 3: Evaluation of Snorkel on relation extraction tasks from text. Snorkel’s generative and discriminative models consistently improve over distant supervision, measured in F1, the harmonic mean of precision (P) and recall (R). We compare with hand-labeled data when available, coming within an average of 1 F1 point.",
   "imageText": ["Chem", "11.2", "41.2", "17.6", "78.6", "21.6", "33.8", "+16.2", "87.0", "39.2", "54.1", "+36.5", "-", "-", "-", "EHR", "81.4", "64.8", "72.2", "77.1", "72.9", "74.9", "+2.7", "80.2", "82.6", "81.4", "+9.2", "-", "-", "-", "CDR", "25.5", "34.8", "29.4", "52.3", "30.4", "38.5", "+9.1", "38.8", "54.3", "45.3", "+15.9", "39.9", "58.1", "47.3", "Spouses", "9.9", "34.8", "15.4", "53.5", "62.1", "57.4", "+42.0", "48.4", "61.6", "54.2", "+38.8", "47.8", "62.5", "54.2", "Task", "P", "R", "F1", "P", "R", "F1", "Lift", "P", "R", "F1", "Lift", "P", "R", "F1", "Distant", "Supervision", "Snorkel", "(Gen.)", "Snorkel", "(Disc.)", "Hand", "Supervision"],
-  "renderURL": "../examples/img/1711.10160-Table3-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Table3-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 66.00689697265625,
@@ -151,7 +151,7 @@
   },
   "caption": "Figure 2: An overview of the Snorkel system. (1) SME users write labeling functions (LFs) that express weak supervision sources like distant supervision, patterns, and heuristics. (2) Snorkel applies the LFs over unlabeled data and learns a generative model to combine the LFs’ outputs into probabilistic labels. (3) Snorkel uses these labels to train a discriminative classification model, such as a deep neural network.",
   "imageText": ["SNORKEL", "We", "study", "a", "patient", "who", "beca", "e", "quadriplegic", "after", "parenteral", "magnesium", "ad", "inistration", "for", "preeclampsia.", "UNLABELED", "DATA", "We", "study", "a", "patient", "who", "became", "quadriplegic", "after", "parenteral", "magnesium", "administration", "for", "preeclampsia.", "e", "study", "a", "patient", "who", "became", "quadriplegic", "after", "parenteral", "agnesiu", "administration", "for", "preecla", "psia.", "DISCRIMINATIVE", "MODEL", "𝑌&", "PROBABILISTIC", "TRAINING", "DATA", "GENERATIVE", "MODEL", "𝑌", "Λ$", "Λ#", "Λ\"", "MODELING", "OPTIMIZER", "Λ", "LABEL", "MATRIX", "CustomFn(x,y", ":", "heuristic(x,y))", "Pattern(“{{0}}causes{{1}}”)", "Ontology(ctd,", "[A,", "B,", "-C])", "LABELING", "FUNCTION", "INTERFACE", "CONTEXT", "HIERARCHY", "Entity", "Span", "Sentence", "Document", "WEAK", "SUPERVISION", "SOURCES", "Subset", "A", "Subset", "B", "Subset", "C", "“Chemicals", "of", "type", "A", "should", "be", "harmless…”", "Domain", "Heuristics", "Patterns", "&", "dictionaries", "External", "KBs", "“causes”,", "“induces”,", "“linked", "to”,", "“aggravates”,", "…"],
-  "renderURL": "../examples/img/1711.10160-Figure2-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure2-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 204.5389404296875,
@@ -171,7 +171,7 @@
   },
   "caption": "Figure 5: Predictive performance of the generative model and number of learned correlations versus the correlation threshold . The selected elbow point achieves a good tradeoff between predictive performance and computational cost (linear in the number of correlations). Left: simulation of structure learning correcting the generative model. Middle: the CDR task. Right: all user study labeling functions for the Spouses task.",
   "imageText": ["All", "User", "Study", "Labeling", "Functions", ")", "(", "F1", "a", "n", "ce", "o", "rm", "e", "rf", "ti", "v", "e", "P", "d", "ic", "P", "re", "57.5", "57.0", "56.5", "56.0", "55.5", "55.0", "ti", "o", "n", "s", "e", "la", "C", "o", "rr", "o", "f", "b", "e", "r", "N", "u", "m", "4000", "3000", "2000", "1000", "0", "0.00.10.20.30.40.5", "Correlation", "Threshold", "Chemical-Disease", "Labeling", "Functions", ")", "(", "F1", "a", "n", "ce", "o", "rm", "e", "rf", "ti", "v", "e", "P", "d", "ic", "P", "re", "70.0", "69.5", "69.0", "68.5", "68.0", "67.5", "67.0", "ti", "o", "n", "s", "e", "la", "C", "o", "rr", "o", "f", "b", "e", "r", "N", "u", "m", "400", "300", "200", "100", "0", "0.00.10.20.30.40.5", "Correlation", "Threshold", "Performance", "#", "of", "Correlations", "Elbow", "Point", "Simulated", "Labeling", "Functions", ")", "(", "F1", "a", "n", "ce", "o", "rm", "e", "rf", "ti", "v", "e", "P", "d", "ic", "P", "re", "80", "70", "60", "50", "40", "30", "20", "40", "50", "N", "u", "m", "b", "e", "r", "o", "f", "C", "o", "rr", "e", "la", "ti", "o", "n", "s", "30", "20", "10", "0", "0.000.050.100.150.200.250.30", "Correlation", "Threshold"],
-  "renderURL": "../examples/img/1711.10160-Figure5-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure5-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 168.24493408203125,
@@ -191,7 +191,7 @@
   },
   "caption": "Figure 3: Labeling functions take as input a Candidate object, representing a data point to be classified. Each Candidate is a tuple of Context objects, which are part of a hierarchy representing the local context of the Candidate.",
   "imageText": ["Candidate(A,B)", "CONTEXT", "HIERARCHY", "Entity", "Span", "Sentence", "Document"],
-  "renderURL": "../examples/img/1711.10160-Figure3-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure3-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 146.08294677734375,
@@ -211,7 +211,7 @@
   },
   "caption": "Figure 8: The profile of the best performing user by F1 score, was a MS or Ph.D. degree in any field, strong Python coding skills, and intermediate to advanced experience with machine learning. Prior experience with text mining added no benefit.",
   "imageText": ["F", "1", "Text", "Mining", "Experience", "None", "Beginner", "Intermediate", "Advanced", "0.5", "0.4", "0.3", "0.2", "F", "1", "Machine", "Learning", "Experience", "None", "Beginner", "Intermediate", "Advanced", "0.5", "0.4", "0.3", "0.2", "F", "1", "Python", "Experience", "Beginner", "Intermediate", "Advanced", "0.5", "0.4", "0.3", "0.2", "F", "1", "Education", "Degree", "BA/BS", "MS", "PhD", "0.5", "0.4", "0.3", "0.2"],
-  "renderURL": "../examples/img/1711.10160-Figure8-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure8-1.jpg",
   "captionBoundary": {
     "x1": 316.81201171875,
     "y1": 185.43194580078125,
@@ -231,7 +231,7 @@
   },
   "caption": "Figure 10: The Viewer utility in Snorkel, showing candidate company-employee relation mentions from the ACE benchmark, composed of candidate person and company mention pairs.",
   "imageText": [],
-  "renderURL": "../examples/img/1711.10160-Figure10-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure10-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 341.2789306640625,
@@ -251,7 +251,7 @@
   },
   "caption": "Table 8: Self-reported skill levels—beginner (Beg.), intermediate (Int.), and advanced (Adv.)—for all user study participants.",
   "imageText": ["Text", "Mining", "3", "6", "4", "2", "Info.", "Extraction", "2", "6", "5", "2", "Machine", "Learning", "5", "1", "4", "5", "Python", "0", "3", "8", "4", "Subject", "New", "Beg.", "Int.", "Adv."],
-  "renderURL": "../examples/img/1711.10160-Table8-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Table8-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 405.27392578125,
@@ -271,7 +271,7 @@
   },
   "caption": "Figure 7: Predictive performance of our 14 user study participants. The majority of users matched or exceeded the performance of a model trained on 7 hours (2500 instances) of hand-labeled data.",
   "imageText": ["90", "co", "re", "F1", "S", "80", "70", "10", "20", "30", "40", "50", "60", "Subject", "Score", "Hand-labeled", "Snorkel", "F1=0.9", "al", "l", "R", "ec", "Precision", "100", "80", "60", "40", "20", "0", "0", "20", "40", "60", "80", "100"],
-  "renderURL": "../examples/img/1711.10160-Figure7-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure7-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 687.0819091796875,
@@ -291,7 +291,7 @@
   },
   "caption": "Figure 9: Labeling functions which express patternmatching, distant supervision, and weak classifier heuristics, respectively, in Snorkel’s Jupyter notebook interface.",
   "imageText": [],
-  "renderURL": "../examples/img/1711.10160-Figure9-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure9-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 170.283935546875,
@@ -311,7 +311,7 @@
   },
   "caption": "Table 2: Number of labeling functions, fraction of positive labels (for binary classification tasks), number of training documents, and number of training candidates for each task.",
   "imageText": ["Chem", "16", "4.1", "1,753", "65,398", "EHR", "24", "36.8", "47,827", "225,607", "CDR", "33", "24.6", "900", "8,272", "Spouses", "11", "8.3", "2,073", "22,195", "Radiology", "18", "36.0", "3,851", "3,851", "Crowd", "102", "-", "505", "505", "Task", "#", "LFs", "%", "Pos.", "#", "Docs", "#", "Candidates"],
-  "renderURL": "../examples/img/1711.10160-Table2-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Table2-1.jpg",
   "captionBoundary": {
     "x1": 316.8119812011719,
     "y1": 66.0068359375,
@@ -331,7 +331,7 @@
   },
   "caption": "Table 7: Number of candidates in the training, development, and test splits for each dataset.",
   "imageText": ["Φ(Λi,", "y", "′′)", "=", "1", "{", "cy′′", "(Λi)wmax", "−", "c−y′′", "(Λi)wmin", "}", "Next,", "deﬁne:", "Ew∗", "[", "P", "(yi", "6=", "y", "′", "i", "|", "Λi,", "w", "∗)1", "{", "y′ifw∗", "(Λi)", "≤", "0", "}]", "i=1", "m∑", "m", "=", "1", "Ew∗", "[", "Ey∼P", "(·", "|", "Λi,w∗)", "[", "1", "{", "yi", "6=", "y", "′", "i", "}]", "1", "{", "y′ifw∗", "(Λi)", "≤", "0", "}]", "i=1", "m∑", "m", "=", "1", "Ew∗,y∼P", "(·", "|", "Λi,w∗)", "[", "1", "{", "yi", "6=", "y", "′", "i", "}", "1", "{", "y′ifw∗", "(Λi)", "≤", "0", "}]", "i=1", "m∑", "m", "≤", "1", "Ew∗,y", "[A∗(Λ,", "y)", "|", "Λ]", "=", "Ew∗,y∼P", "(·", "|", "Λ,w∗)", "[Aw∗", "(Λ,", "y)]", "is", "incorrect", "(note", "that", "for", "tie", "votes,", "we", "simply", "upper", "bound", "by", "trivially", "assuming", "an", "expected", "advantage", "of", "one):", "Chem", "65,398", "1,292", "1,232", "EHR", "225,607", "913", "604", "CDR", "8,272", "888", "4,620", "Spouses", "22,195", "2,796", "2,697", "Radiology", "3,851", "385", "385", "Crowd", "505", "63", "64", "Task", "#", "Train.", "#", "Dev.", "#", "Test"],
-  "renderURL": "../examples/img/1711.10160-Table7-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Table7-1.jpg",
   "captionBoundary": {
     "x1": 53.798004150390625,
     "y1": 308.4149475097656,
@@ -351,7 +351,7 @@
   },
   "caption": "Figure 6: The advantage of using the generative labeling model (GM) over majority vote (MV) as predicted by our optimizer (Ã∗), and empirically (Aw), on the CDR application as the number of LFs is increased. We see that the optimizer correctly chooses MV during early development stages, and then GM in later ones.",
   "imageText": ["Optimizer", "(A", "*", ")", "Gen.", "Model", "(Aw)", "Choose", "GM", "Choose", "MV", "g", "e", "d", "v", "a", "n", "ta", "g", "A", "M", "o", "d", "e", "lin", "0.08", "0.07", "0.06", "0.05", "0.04", "0.03", "0.02", "0.01", "0.00", "5", "10", "15", "20", "25", "30", "#", "of", "Labeling", "Functions"],
-  "renderURL": "../examples/img/1711.10160-Figure6-1.jpg",
+  "renderURL": "../examples/img/18bc1d4271abe8dd6e16179cdb06524a4f396e16-Figure6-1.jpg",
   "captionBoundary": {
     "x1": 53.79800033569336,
     "y1": 228.14990234375,

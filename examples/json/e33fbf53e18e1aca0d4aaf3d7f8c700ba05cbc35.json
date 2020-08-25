@@ -11,7 +11,7 @@
   },
   "caption": "Table 2: Results (precision, recall, F1 score) on T2Dv2.",
   "imageText": ["T2K", "Match", "0.624,", "0.727,", "0.671", "0.729,", "0.884,", "0.799", "ColNet", "0.765,", "0.811,", "0.787", "0.868,", "0.898,", "0.882", "Lookup-Vote", "0.862,", "0.821,", "0.841", "0.946,", "0.941,", "0.943", "ColNetEnsemble", "0.853,", "0.846,", "0.849", "0.941,", "0.958,", "0.949", "Strict", "T2K", "Match", "0.664,", "0.773,", "0.715", "0.738,", "0.895,", "0.809", "ColNet", "0.845,", "0.896,", "0.870", "0.927,", "0.960,", "0.943", "Lookup-Vote", "0.909,", "0.865,", "0.886", "0.965,", "0.960,", "0.962", "ColNetEnsemble", "0.917,", "0.909,", "0.913", "0.967,", "0.985,", "0.976", "Tolerant", "Models", "Methods", "All", "Columns", "PK", "Columns"],
-  "renderURL": "../examples/img/1811.01304-Table2-1.jpg",
+  "renderURL": "../examples/img/e33fbf53e18e1aca0d4aaf3d7f8c700ba05cbc35-Table2-1.jpg",
   "captionBoundary": {
     "x1": 60.066001892089844,
     "y1": 160.94869995117188,
@@ -31,7 +31,7 @@
   },
   "caption": "Table 3: Results (precision, recall, F1 score) on Limaye.",
   "imageText": ["T2K", "Match", "0.453,", "0.330,", "0.382", "Efthymiou17-Vote", "0.626,", "0.357,", "0.454", "ColNet", "0.576,", "0.619,", "0.597", "Lookup-Vote", "0.571,", "0.447,", "0.501", "ColNetEnsemble", "0.602,", "0.639,", "0.620", "Strict", "T2K", "Match", "0.560,", "0.408,", "0.472", "Efthymiou17-Vote", "0.759,", "0.414,", "0.536", "ColNet", "0.763,", "0.820,", "0.791", "Lookup-Vote", "0.732,", "0.660,", "0.694", "ColNetEnsemble", "0.796,", "0.799,", "0.798", "Tolerant", "Models", "Methods", "PK", "Columns"],
-  "renderURL": "../examples/img/1811.01304-Table3-1.jpg",
+  "renderURL": "../examples/img/e33fbf53e18e1aca0d4aaf3d7f8c700ba05cbc35-Table3-1.jpg",
   "captionBoundary": {
     "x1": 58.959999084472656,
     "y1": 307.8747253417969,
@@ -51,7 +51,7 @@
   },
   "caption": "Figure 1: Column Type Annotation with ColNet",
   "imageText": ["Word", "Representation", "Entity", "Columns", "Lookup", "Predict", "&", "Ensemble", "(Particular", "&", "General", "Samples)", "Synthetic", "Columns", "Classification", "Models", "(CNNs)", "Candidate", "Classes", "Matched", "Entities", "University", "Museum", "Knowledge", "Base", "(KB)", "Venue", "Natural", "Museum", "Historical", "Museum", "Museum", "Building", "•", "Venue:", "✗", "Museum:", "✓", "•", "University", "Museum:", "✗", "•", "Historical", "Museum:", "✗", "Type", "Annotations", "•", "Building:", "✓", "•", "Museum:", "✓", "•", "Natural", "Oxford_Univ", "ersity_Muse", "um_of_Natu", "ral_History", "The", "Royal", "Academy", "of", "Arts", "(RA)", "Bishopsgate", "Institute"],
-  "renderURL": "../examples/img/1811.01304-Figure1-1.jpg",
+  "renderURL": "../examples/img/e33fbf53e18e1aca0d4aaf3d7f8c700ba05cbc35-Figure1-1.jpg",
   "captionBoundary": {
     "x1": 75.26300048828125,
     "y1": 185.92471313476562,
@@ -71,7 +71,7 @@
   },
   "caption": "Figure 4: The performance of CNNs of TM classes [above] and FM classes [below], under different knowledge gaps, with and without transfer learning. Knowledge gap is simulated by randomly selecting a ratio of particular entities for training. The lower ratio, the larger gap.",
   "imageText": ["U", "C", "Organization*", "A", "vg.", "A", "0", "0.25", "0.5", "0.75", "1", "1", "0.98", "0.96", "0.94", "0.92", "0.9", "Species*", "0", "0.25", "0.5", "0.75", "1", "Person*", "0", "0.25", "0.5", "0.75", "1", "Without", "Transfer", "With", "Transfer", "Place*", "0", "0.25", "0.5", "0.75", "1", "A", "vg.", "A", "S", "Knowledge", "Gap", "0", "0.25", "0.5", "0.75", "1", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0", "0.25", "0.5", "0.75", "1", "0", "0.25", "0.5", "0.75", "1", "0", "0.25", "0.5", "0.75", "1", "0", "ΩΩ"],
-  "renderURL": "../examples/img/1811.01304-Figure4-1.jpg",
+  "renderURL": "../examples/img/e33fbf53e18e1aca0d4aaf3d7f8c700ba05cbc35-Figure4-1.jpg",
   "captionBoundary": {
     "x1": 319.5,
     "y1": 260.6517028808594,
@@ -91,7 +91,7 @@
   },
   "caption": "Figure 3: The performance of CNNs on TM classes [left] and FM classes [right] under different synthetic column sizes, trained by particular samples.",
   "imageText": ["Synthetic", "Column", "Size", "Organization*Avg.A", "S", "Place*", "Person*", "Species*", "1", "2", "3", "4", "5", "0.43", "0.38", "0.33", "0.28", "0.23", "0.18", "A", "vg.", "A", "U", "C", "Synthetic", "Column", "Size", "Place*", "Person*", "Species*", "Organization*", "1", "2", "3", "4", "5", "1", "0.99", "0.98", "0.97", "0.96", "0.95", "0.94", "0.93", "0.92"],
-  "renderURL": "../examples/img/1811.01304-Figure3-1.jpg",
+  "renderURL": "../examples/img/e33fbf53e18e1aca0d4aaf3d7f8c700ba05cbc35-Figure3-1.jpg",
   "captionBoundary": {
     "x1": 54.0,
     "y1": 171.58871459960938,
@@ -111,7 +111,7 @@
   },
   "caption": "Figure 2: The CNN architecture used in ColNet.",
   "imageText": [".", ".", ".", "FC", "Layer", "Output", "Score", "𝑝", ".", ".", ".", "Features", "Max", "Pooling", "(Salient", "Signals)", ".", ".", ".", "Conv", "Filters", "(2×𝑑,", "3×𝑑,", "…)", "Column", "𝒙(𝒆)", "Input:", "Matrix", "of", "a", "Synthetic", "𝑤𝑜𝑟𝑑&", "𝑤𝑜𝑟𝑑%", "𝑑"],
-  "renderURL": "../examples/img/1811.01304-Figure2-1.jpg",
+  "renderURL": "../examples/img/e33fbf53e18e1aca0d4aaf3d7f8c700ba05cbc35-Figure2-1.jpg",
   "captionBoundary": {
     "x1": 75.15899658203125,
     "y1": 663.6956787109375,
@@ -131,7 +131,7 @@
   },
   "caption": "Table 1: Some statistics of the web table sets.",
   "imageText": ["Limaye", "428", "23", "21", "(24)", "T2Dv2", "411", "124", "56", "(35)", "Name", "Columns", "Avg.", "Cells", "Different", "“Best”", "(“Okay”)", "Classes"],
-  "renderURL": "../examples/img/1811.01304-Table1-1.jpg",
+  "renderURL": "../examples/img/e33fbf53e18e1aca0d4aaf3d7f8c700ba05cbc35-Table1-1.jpg",
   "captionBoundary": {
     "x1": 346.03399658203125,
     "y1": 177.87771606445312,

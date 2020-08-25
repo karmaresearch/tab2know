@@ -11,7 +11,7 @@
   },
   "caption": "Figure 3: The two multi-task network architectures, for an example three-task problem with root task y0 and child tasks y1,y2. Boxes are linear layers, and lines are nonlinearity connections. In the left panel (FlatMTL), the task heads are all connected to the topmost intermediate layer. In the right panel (HierMTL), the task heads are connected to intermediate layers corresponding to their hierarchical positions, with child outputs passed as input to parent task heads.",
   "imageText": ["�%", "�$", "�#", "�#", "�$", "�%", "�", "�", "Input", "Layer", "Input", "Layer", "Head", "0", "Task", "Head", "2", "Task", "Head", "1", "Task", "Layer", "2", "Intermediate", "Intermediate", "Layer", "1", "Head", "0", "Task", "Head", "2", "Task", "Head", "1", "Task", "Layer", "2", "Intermediate", "Intermediate", "Layer", "1"],
-  "renderURL": "../examples/img/metal_deem-Figure3-1.jpg",
+  "renderURL": "../examples/img/cba294bc7e2f2afa919e2ff19ff46390be892804-Figure3-1.jpg",
   "captionBoundary": {
     "x1": 317.6050109863281,
     "y1": 231.0115509033203,
@@ -31,7 +31,7 @@
   },
   "caption": "Figure 2: An example hierarchical generative label model, where a four-class classification problem is broken into three hierarchical sub-tasks y0,y1,y2, each supervised by three LFs. An assignment of task labels (y0 = 2,y1 = ∅,y2 = 1) would correspond to an end label y = 3.",
   "imageText": ["λ2,1", "λ2,2", "λ2,3", "y2", "λ1,1", "λ1,2", "λ1,3", "λ0,1", "λ0,2", "λ0,3y1", "y0"],
-  "renderURL": "../examples/img/metal_deem-Figure2-1.jpg",
+  "renderURL": "../examples/img/cba294bc7e2f2afa919e2ff19ff46390be892804-Figure2-1.jpg",
   "captionBoundary": {
     "x1": 317.60595703125,
     "y1": 212.8605499267578,
@@ -51,7 +51,7 @@
   },
   "caption": "Table 1: Accuracy of the end label predictions for the end model (i.e. full MeTaL pipeline), label model, and a simple baseline using the the development set labels as supervision.",
   "imageText": ["Average", "65.0", "66.7", "76.2", "RCV1", "75.4", "±", "0.59", "60.5", "±", "0.02", "78.4", "±", "1.39", "OpenI", "54.6", "±", "6.28", "72.9", "±", "0.01", "74.0", "±", "0.46", "Dev.", "Labels", "Label", "Model", "End", "Model"],
-  "renderURL": "../examples/img/metal_deem-Table1-1.jpg",
+  "renderURL": "../examples/img/cba294bc7e2f2afa919e2ff19ff46390be892804-Table1-1.jpg",
   "captionBoundary": {
     "x1": 53.50199890136719,
     "y1": 146.4005889892578,
@@ -71,7 +71,7 @@
   },
   "caption": "Table 2: Label model ablation results, using hard majority vote, soft majority vote, and the full trained label model.",
   "imageText": ["Average", "63.6", "66.0", "66.7", "RCV1", "56.4", "±", "0.02", "59.7", "±", "0.02", "60.5", "±", "0.02", "OpenI", "70.8", "±", "0.06", "72.3", "±", "0.05", "72.9", "±", "0.01", "Hard", "MV", "Soft", "MV", "Trained", "Label", "Model"],
-  "renderURL": "../examples/img/metal_deem-Table2-1.jpg",
+  "renderURL": "../examples/img/cba294bc7e2f2afa919e2ff19ff46390be892804-Table2-1.jpg",
   "captionBoundary": {
     "x1": 53.50199890136719,
     "y1": 485.54058837890625,
@@ -91,7 +91,7 @@
   },
   "caption": "Table 3: End model ablation results.",
   "imageText": ["Average", "74.5", "74.6", "76.2", "RCV1", "76.3", "±", "0.87", "76.1", "±", "1.75", "78.4", "±", "1.39", "OpenI", "72.6", "±", "0.57", "73.1", "±", "0.76", "74.0", "±", "0.46", "SingleTask", "FlatMTL", "HierMTL"],
-  "renderURL": "../examples/img/metal_deem-Table3-1.jpg",
+  "renderURL": "../examples/img/cba294bc7e2f2afa919e2ff19ff46390be892804-Table3-1.jpg",
   "captionBoundary": {
     "x1": 365.64801025390625,
     "y1": 146.4005889892578,
@@ -111,7 +111,7 @@
   },
   "caption": "Figure 1: In MeTaL domain expert users write labeling functions (1) to provideweak supervision for a hierarchy of tasks. This weak supervision is de-noised by a generative label model (2), and then used to train a multi-task end model (3) that is auto-compiled based on the structure of the tasks.",
   "imageText": ["1", "2", "3", "def", "lf_2_1:", "…", "def", "lf_1_1:", "…", "def", "lf_0_1:", "…", "�#", "�%", "�$", "Multi-Task", "End", "Model", "Labeling", "Functions", "Hierarchical", "Label", "Model", "�\"%", "�\"#�", "\"", "$"],
-  "renderURL": "../examples/img/metal_deem-Figure1-1.jpg",
+  "renderURL": "../examples/img/cba294bc7e2f2afa919e2ff19ff46390be892804-Figure1-1.jpg",
   "captionBoundary": {
     "x1": 317.65899658203125,
     "y1": 277.61859130859375,
