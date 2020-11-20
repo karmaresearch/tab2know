@@ -157,7 +157,18 @@ When contributing to this repository, please first discuss the change you wish t
 
 ## :memo: Citation
 
-...
+```kt
+@inproceedings{kruit2020tab2know.
+    author="Kruit, Benno and He, Hongyu and Urbani, Jacopo",
+    title="Tab2Know: Building a Knowledge Base from Tables in Scientific Papers",
+    booktitle="The Semantic Web -- ISWC 2020",
+    year="2020",
+    publisher="Springer International Publishing",
+    address="Cham",
+    pages="349--365",
+    isbn="978-3-030-62419-4"
+}
+```
 
 
 [tab2know]: https://github.com/karmaresearch/tab2know
